@@ -23,16 +23,19 @@ db.once('open', function (){
             console.log("new url added:" + urlObj);
             var resObj = {
                 original_url: originalUrl,
-                short_url: 'https://' +req.hostname + '/' + urlObj._id
+                short_url: 'https://' +req.hostname + '/old/' + urlObj._id
             };
             res.end(JSON.stringify(resObj));
         });
     }); 
     
-    app.get('/:id', function(req, res) {
+    app.get('/old/:id', function(req, res) {
         var id = req.params.id;
         URL.find({_id: id}, function(err,urls){
-            if (err) throw err;
+            if (err) {
+                console.error(err);
+                res.end(JSON.stringify({error:"This url is not in the database!"}));
+            };
             var originalUrl = urls[0].original_url;
             res.redirect(originalUrl);
         });
