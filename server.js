@@ -1,6 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
-var dbpath = 'mongodb://localhost/urls';
+var dbpath = 'mongodb://<dbuser>:<dbpassword>@ds011482.mlab.com:11482/heroku_ptkbmgr9';
 var app = express();
 var path = require("path");
 
