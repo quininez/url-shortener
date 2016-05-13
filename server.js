@@ -1,6 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
-var dbpath = process.env.MONGODB_URI || 'mongodb://localhost:27017/urls';
+var dbpath = process.env.MONGODB_URI || 'mongodb://localhost:27017/urls' || 'mongodb://gigikent:parola22@ds011482.mlab.com:11482/heroku_ptkbmgr9';
 var app = express();
 var path = require("path");
 
